@@ -38,9 +38,9 @@
  * have to be set. Take a look at the system/modules/core/config/config.php
  * file to see how back end modules are configured.
  */
-$GLOBALS['BE_MOD']['content']['die_losungen'] = array(
+$GLOBALS['BE_MOD']['content']['dielosungen'] = array(
     'tables' => array('tl_losungen'),
-    'icon' => 'system/modules/die_losungen/assets/die_losungen.png',
+    'icon' => 'system/modules/dielosungen/assets/dielosungen.png',
     'importlosungen' => array('Losungen', 'importlosungen')
 );
 
@@ -66,7 +66,7 @@ $GLOBALS['BE_MOD']['content']['die_losungen'] = array(
  * module is rendered. The class "ModuleClass1" has to be stored in a file
  * named "ModuleClass1.php" in your module folder.
  */
-$GLOBALS['FE_MOD']['die_losungen'] = array(
+$GLOBALS['FE_MOD']['dielosungen'] = array(
     'dielosung' => 'ModuleDieLosung'    
 );
 

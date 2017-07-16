@@ -24,14 +24,14 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'Losungen\Losungen'        => 'system/modules/die_losungen/classes/Losungen.php',
-	'Losungen\LosungModule'    => 'system/modules/die_losungen/classes/LosungModule.php',
+	'Losungen\Losungen'        => 'system/modules/dielosungen/classes/Losungen.php',
+	'Losungen\LosungModule'    => 'system/modules/dielosungen/classes/LosungModule.php',
 
 	// Models
-	'Losungen\LosungenModel'   => 'system/modules/die_losungen/models/LosungenModel.php',
+	'Losungen\LosungenModel'   => 'system/modules/dielosungen/models/LosungenModel.php',
 
 	// Modules
-	'Losungen\ModuleDieLosung' => 'system/modules/die_losungen/modules/ModuleDieLosung.php',
+	'Losungen\ModuleDieLosung' => 'system/modules/dielosungen/modules/ModuleDieLosung.php',
 ));
 
 
@@ -40,6 +40,6 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'be_import_losungen' => 'system/modules/die_losungen/templates',
-	'mod_dielosung'      => 'system/modules/die_losungen/templates',
+	'be_import_losungen' => 'system/modules/dielosungen/templates',
+	'mod_dielosung'      => 'system/modules/dielosungen/templates',
 ));
