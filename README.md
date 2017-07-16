@@ -24,6 +24,9 @@ Um Losungen anzeigen zu können, müssen diese erst als XML importiert werden. D
 ## Ausgabe im Frontend
 Zur Anzeige im Frontend muss das Modul "Die Losung" eingebunden und konfiguriert werden. Das Template <code>mod_dielosung.html5</code> kann natürlich angepasst werden.
 
+## Hinweise
+Das Modul ist derzeit nur kompatibel mit Contao 3.5. Eine Anpassung auf Contao 4 ist in Planung.
+
 ## Haftungsausschluss
 Das Modul steht in keiner Beziehung zu der Herrnhuter Brüdergemeinde.
 Lizenz: MIT License

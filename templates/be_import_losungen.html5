@@ -1,0 +1,30 @@
+<div id="tl_buttons">
+  <a href="<?= $this->hrefBack; ?>" class="header_back" title="<?= $this->goBack; ?>" accesskey="b" onclick="Backend.getScrollOffset();"><?= $this->goBack; ?></a>
+</div>
+
+<h2 class="sub_headline"><?= $this->headline; ?></h2>
+<?= $this->message; ?>
+
+<form action="<?=$this->request; ?>" id="tl_importlosung" class="tl_form" method="post" enctype="multipart/form-data">
+  <div class="tl_formbody_edit">
+    <input type="hidden" name="FORM_SUBMIT" value="tl_importlosung" />
+    <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>" />
+
+      <div class="tl_box">
+        <h3><?= $this->losungenFileInfo->generateLabel(); ?></h3>
+        <p><?= $this->losungenFileInfo->help; ?></p> 
+      </div>
+
+      <div class="tl_box">
+        <h3><?= $this->losungenFileUpload->generateLabel(); ?></h3>
+        <?= $this->losungenFileUpload->generateWithError(); if ($this->losungenFileUpload->help): ?> 
+        <p class="tl_help"><?= $this->losungenFileUpload->help; ?></p><?php endif; ?> 
+      </div>
+  </div>
+
+  <div class="tl_formbody_submit">
+    <div class="tl_submit_container">
+      <input type="submit" name="import" id="save" class="tl_submit" alt="<?= $this->submit; ?>" accesskey="s" value="<?= $this->submit; ?>" />
+    </div>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+{
+	"name":"wiphi/contao-dielosungen",
+	"description":"Importiere die Herrnhuter Losung in Contao und zeige sie im Frontend an.",
+	"keywords":["contao","module","Herrnhuter Losung"],
+	"type":"contao-module",
+	"homepage":"https://github.com/wiphi/contao-dielosungen",
+	"license":"MIT License",
+	"authors":[
+		{
+			"name":"Philipp Winkel",
+			"homepage":"https://github.com/wiphi/contao-dielosungen",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"issues":"https://github.com/wiphi/contao-dielosungen/issues",
+		"source":"https://github.com/wiphi/contao-dielosungen"
+	},
+	"require":{
+		"php":">=5.6",
+		"contao/core":">=3.5,<4"
+	},
+	"autoload":{
+		"classmap":[""]
+	},
+	"extra":{
+		"contao":{
+			"sources":{
+				"":"system/modules/dielosungen"
+			}
+		},
+		"branch-alias": {
+			"dev-master":"1.0.x-dev"
+		}
+	}
+}

@@ -1,0 +1,23 @@
+<!-- indexer::stop -->
+
+<?php if($this->blnLosungAvaible) : ?>
+
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+<<?= $this->hl ?>><span><?= $this->headline ?></span> | <span><?= $this->datumFormated ?></span></<?= $this->hl ?>>
+  <?php if ($this->IsSonntag) : ?>
+    <p><?= $this->sonntag_full ?></p>
+  <?php endif; ?>
+  <div class="losung block">
+    <p class="losungstext"><?= $this->losungstext ?></p>
+    <p class="losungsvers"><?= $this->losungsvers ?></p>
+  </div>
+  <div class="lehrtext block">
+    <p class="lehrtext"><?= $this->lehrtext ?></p>
+    <p class="lehrtextvers"><?= $this->lehrtextvers ?></p>
+  </div>
+</div>
+
+<?php endif; ?>
+
+<!-- indexer::continue -->
