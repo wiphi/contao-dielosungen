@@ -6,17 +6,8 @@ Bitte beachte unbedingt die Nutzungsbedingungen der Herrnhuter Brüdergemeinde f
 Es gelten die Nutzungsbedingungen der Herrnhuter Brüdergemeinde. https://www.losungen.de/download/nutzungsbedingungen/
 
 ## Installation
-Derzeit ist das Modul noch nicht unter dem Package-Manager auffindbar, kann aber durch einen manuellen Eintrag in die composer.json installiert werden.
-<pre>
-    "repositories": [
-        {
-            "url": "https://github.com/wiphi/contao-dielosungen.git",
-            "type": "git"
-        }
-    ],
-</pre>
 
-Anschließend kann nach <code>wiphi/contao-dielosungen</code> das Modul gesucht und installiert werden.
+Die Installation kann mittels Contao Paketmanager durchgeführt werden.
 
 ## Import
 Um Losungen anzeigen zu können, müssen diese erst als XML importiert werden. Diese wird auf https://www.losungen.de/download/ bereit gestellt. Die entpackte XML-Datei kann dann im Modul unter "Die Losung importieren" eingelesen werden.
