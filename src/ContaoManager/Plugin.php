@@ -26,14 +26,9 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            /*
             BundleConfig::create('WiPhi\DieLosungen\WiPhiDieLosungen')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
                 ->setReplace(['dielosungen']),
-                */
-                BundleConfig::create(WiPhiDieLosungen::class)
-                ->setLoadAfter([ContaoCoreBundle::class])
-                ->setReplace(['dielosungen'])
         ];
     }
 }
