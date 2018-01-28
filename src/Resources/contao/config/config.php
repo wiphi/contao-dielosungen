@@ -40,7 +40,7 @@
  */
 $GLOBALS['BE_MOD']['content']['dielosungen'] = array(
     'tables' => array('tl_losungen'),
-    'importlosungen' => array('WiPhi\DieLosungen\ModuleDieLosung', 'importlosungen')
+    'importlosungen' => array('WiPhi\DieLosungen\Losungen', 'importlosungen')
 );
 
 
@@ -168,6 +168,11 @@ $GLOBALS['FE_MOD']['dielosungen'] = array(
  *
  * You can register your mappings in the config.php file of your extension.
  */
+ 
+/**
+ * Register the model
+ */
+$GLOBALS['TL_MODELS']['tl_losungen'] = 'WiPhi\DieLosungen\LosungenModel';
 
 
 /**
