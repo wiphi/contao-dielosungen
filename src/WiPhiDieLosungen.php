@@ -6,13 +6,13 @@
  *
  * @license MIT
  */
-namespace WiPhi\DieLosungenBundle;
+namespace WiPhi\DieLosungen;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * Configures the WiPhi DieLosungen bundle.
  *
  * @author Philipp Winkel <https://github.com/wiphir>
  */
-class WiPhiDieLosungenBundle extends Bundle
+class WiPhiDieLosungen extends Bundle
 {
 }

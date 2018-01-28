@@ -15,7 +15,7 @@
 /**
  * Namespace
  */
-namespace Losungen;
+namespace WiPhi\DieLosungen;
 
 
 /**

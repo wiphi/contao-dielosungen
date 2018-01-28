@@ -40,7 +40,7 @@
  */
 $GLOBALS['BE_MOD']['content']['dielosungen'] = array(
     'tables' => array('tl_losungen'),
-    'icon' => 'bundles/WiPhiDieLosungen/dielosungen.png',
+    'icon' => 'bundles/WiPhi/DieLosungen/dielosungen.png',
     'importlosungen' => array('Losungen', 'importlosungen')
 );
 
