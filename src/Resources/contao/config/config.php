@@ -40,7 +40,7 @@
  */
 $GLOBALS['BE_MOD']['content']['dielosungen'] = array(
     'tables' => array('tl_losungen'),
-    'icon' => 'system/modules/dielosungen/assets/dielosungen.png',
+    'icon' => 'bundles/WiPhiDieLosungen/dielosungen.png',
     'importlosungen' => array('Losungen', 'importlosungen')
 );
 
@@ -67,7 +67,7 @@ $GLOBALS['BE_MOD']['content']['dielosungen'] = array(
  * named "ModuleClass1.php" in your module folder.
  */
 $GLOBALS['FE_MOD']['dielosungen'] = array(
-    'dielosung' => 'ModuleDieLosung'    
+    'dielosung' => 'WiPhi\DieLosungen\ModuleDieLosung'    
 );
 
 
