@@ -18,9 +18,6 @@ Zur Anzeige im Frontend muss das Modul "Die Losung" eingebunden und konfiguriert
 ## Showcase
 Auf https://www.evgemeinde-badelster.de/startseite kann das Modul im Frontend angesehen werden.
 
-## Hinweise
-Das Modul ist derzeit nur kompatibel mit Contao 3.5. Eine Anpassung auf Contao 4 ist in Planung.
-
 ## Haftungsausschluss
 Das Modul steht in keiner Beziehung zu der Herrnhuter Brüdergemeinde.
 Lizenz: MIT License

@@ -40,8 +40,7 @@
  */
 $GLOBALS['BE_MOD']['content']['dielosungen'] = array(
     'tables' => array('tl_losungen'),
-    'icon' => 'system/modules/dielosungen/assets/dielosungen.png',
-    'importlosungen' => array('Losungen', 'importlosungen')
+    'importlosungen' => array('WiPhi\DieLosungen\Losungen', 'importlosungen')
 );
 
 
@@ -67,7 +66,7 @@ $GLOBALS['BE_MOD']['content']['dielosungen'] = array(
  * named "ModuleClass1.php" in your module folder.
  */
 $GLOBALS['FE_MOD']['dielosungen'] = array(
-    'dielosung' => 'ModuleDieLosung'    
+    'dielosung' => 'WiPhi\DieLosungen\ModuleDieLosung'    
 );
 
 
@@ -169,6 +168,11 @@ $GLOBALS['FE_MOD']['dielosungen'] = array(
  *
  * You can register your mappings in the config.php file of your extension.
  */
+ 
+/**
+ * Register the model
+ */
+$GLOBALS['TL_MODELS']['tl_losungen'] = 'WiPhi\DieLosungen\LosungenModel';
 
 
 /**

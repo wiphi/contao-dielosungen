@@ -1,8 +1,8 @@
 {
 	"name":"wiphi/contao-dielosungen",
 	"description":"Importiere die Herrnhuter Losung in Contao und zeige sie im Frontend an.",
-	"keywords":["contao","module","Herrnhuter Losung"],
-	"type":"contao-module",
+	"keywords":["contao","module","Herrnhuter Losung", "Die Losungen"],
+	"type":"contao-bundle",
 	"homepage":"https://github.com/wiphi/contao-dielosungen",
 	"license":"MIT",
 	"authors":[
@@ -17,20 +17,28 @@
 		"source":"https://github.com/wiphi/contao-dielosungen"
 	},
 	"require":{
-		"php":">=5.6",
-		"contao/core":">=3.5,<4"
+		"php":"~7.0",
+		"contao/core-bundle":"~4.4"
 	},
 	"autoload":{
-		"classmap":[""]
+		"psr-4": {
+			"WiPhi\\DieLosungen\\": "src/"
+		},
+		"classmap": [
+			"src/Resources/contao"
+		],
+		"exclude-from-classmap": [
+			"src/Resources/contao/config",
+			"src/Resources/contao/dca",
+			"src/Resources/contao/languages",
+			"src/Resources/contao/templates"
+		]	
 	},
 	"extra":{
-		"contao":{
-			"sources":{
-				"":"system/modules/dielosungen"
-			}
-		},
+		"contao-manager-plugin": "WiPhi\\DieLosungen\\ContaoManager\\Plugin",
+
 		"branch-alias": {
-			 "dev-release/1.0.0": "1.0.x-dev"
+			"dev-contao4": "2.0.x-dev"
 		}
 	}
 }

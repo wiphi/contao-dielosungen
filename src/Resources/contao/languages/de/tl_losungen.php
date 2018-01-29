@@ -38,7 +38,8 @@ $GLOBALS['TL_LANG']['tl_losungen']['losungenFileInfo'] = array(
         '1. Losungsdatei von losungen.de herunterladen', 
         'Eine aktuelle Losungsdatei im <b>XML Format</b> kann unter <b>%s</b> heruntergeladen werden.',
         'http://www.losungen.de/download/');
-$GLOBALS['TL_LANG']['tl_losungen']['losungenFileUpload'] = array('2. Losungsdatei auswählen und importieren', 'Bitte wählen Sie eine Losungsdatei für den Import aus. Diese muss eine gültige XML Datei sein. Sollte ein Imprt mehrmals erfolgen, werden die Daten überschrieben.');
+$GLOBALS['TL_LANG']['tl_losungen']['losungenFileUpload'] = array('2. Losungsdatei auswählen und importieren', 
+        'Bitte wählen Sie eine Losungsdatei für den Import aus. Diese muss eine gültige XML Datei sein. Sollte ein Import mehrmals erfolgen, werden die Daten überschrieben.<br><b>Hinweis:</b> Der Upload von XML Dateien muss in den Contao Einstellungen erlaubt werden!');
 $GLOBALS['TL_LANG']['tl_losungen']['fileNotExists'] = 'Datei existiert nicht!';
 $GLOBALS['TL_LANG']['tl_losungen']['fileTransmitError'] = 'Datei wurde nicht korrekt übertragen!';
 $GLOBALS['TL_LANG']['tl_losungen']['filenoXml'] = 'Datei ist keine XML-Datei!';
