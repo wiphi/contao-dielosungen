@@ -1,8 +1,8 @@
 <!-- indexer::stop -->
 
-<?php if($this->blnLosungAvaible) : ?>
-
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+<?php if($this->blnLosungAvaible) : ?>
 
 <<?= $this->hl ?>><span><?= $this->headline ?></span> | <span><?= $this->datumFormated ?></span></<?= $this->hl ?>>
   <?php if ($this->IsSonntag) : ?>
@@ -16,8 +16,11 @@
     <p class="lehrtext"><?= $this->lehrtext ?></p>
     <p class="lehrtextvers"><?= $this->lehrtextvers ?></p>
   </div>
-</div>
 
+<?php else : ?>
+  <p class="losung_not_avaible"><?= $GLOBALS['TL_LANG']['tl_losungen']['losungenNotAvaible'] ?></p>
 <?php endif; ?>
+
+</div>
 
 <!-- indexer::continue -->

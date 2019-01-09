@@ -46,7 +46,6 @@ class ModuleDieLosung extends \Module
 			$objTemplate->title = $this->headline;
 			$objTemplate->id = $this->id;
 			$objTemplate->link = $this->name;
-			$objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
 
 			return $objTemplate->parse();
 		}		
@@ -60,14 +59,20 @@ class ModuleDieLosung extends \Module
 	protected function compile()
 	{		
 		$objToday = new \Date();
+		$objLosung = null;
 		$arrLosung = null;
 		$blnLosungAvaible = false;
-		$arrLosung = LosungenModel::findOneByDatum($objToday->dayBegin)->row();
-		if (is_array($arrLosung))
+		$objLosung = LosungenModel::findOneByDatum($objToday->dayBegin);
+		
+		if ($objLosung != null)
 		{
-			$blnLosungAvaible = true;
-			$arrLosung['datumFormated'] = \Date::parse((($this->dielosung_datumsformat != '') ? $this->dielosung_datumsformat : \Config::get('dateFormat')), $arrLosung['datum']);
-			$arrLosung['IsSonntag'] = ($arrLosung['sonntag_full'] != ''); 
+			$arrLosung = $objLosung->row();
+			if (is_array($arrLosung))
+			{
+				$blnLosungAvaible = true;
+				$arrLosung['datumFormated'] = \Date::parse((($this->dielosung_datumsformat != '') ? $this->dielosung_datumsformat : \Config::get('dateFormat')), $arrLosung['datum']);
+				$arrLosung['IsSonntag'] = ($arrLosung['sonntag_full'] != ''); 
+			}
 		}		
 		$this->Template->setData($arrLosung);
 		$this->Template->blnLosungAvaible = $blnLosungAvaible;
