@@ -17,6 +17,7 @@
  */
 namespace WiPhi\DieLosungen;
 
+use Contao\Module;
 
 /**
  * Class LosungModule
@@ -25,7 +26,7 @@ namespace WiPhi\DieLosungen;
  * @author     Philipp Winkel
  * @package    Devtools
  */
-class LosungModule extends \Module
+class LosungModule extends Module
 {
 
 	/**

@@ -17,6 +17,19 @@
  */
 namespace WiPhi\DieLosungen;
 
+use Contao\Backend;
+use Contao\BackendTemplate;
+use Contao\DataContainer;
+use Contao\Date;
+use Contao\Environment;
+use Contao\File;
+use Contao\Input;
+use Contao\Message;
+use Contao\StringUtil;
+use Contao\TextField;
+use Contao\Upload;
+use WiPhi\DieLosungen\LosungenModel;
+
 
 /**
  * Class Losungen
@@ -25,7 +38,7 @@ namespace WiPhi\DieLosungen;
  * @author     Philipp Winkel
  * @package    Devtools
  */
-class Losungen extends \Backend
+class Losungen extends Backend
 {
 	protected $blnSave = true;
 
@@ -37,9 +50,9 @@ class Losungen extends \Backend
 	 *
 	 * @return string Geparster Import-Dialog 
 	 */
-	public function importlosungen(\DataContainer $dc)
+	public function importlosungen(DataContainer $dc)
 	{
-		if (\Input::get('key') != 'importlosungen')
+		if (Input::get('key') != 'importlosungen')
 		{
 			return '';
 		}
@@ -48,33 +61,33 @@ class Losungen extends \Backend
 		$this->import('BackendUser', 'User');
 		$this->loadLanguageFile("tl_losungen");
 
-		// Template laden & generieren
+		// Template laden & ge$this->template->request = ampersand(\Environment::get('request'),nerieren
 		// Environment setzen
-		$this->template = new \BackendTemplate('be_import_losungen');		
+		$this->template = new BackendTemplate('be_import_losungen');		
 		$this->template->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
-		$this->template->hrefBack = ampersand(str_replace('&key=importlosungen', '', \Environment::get('request')));
+		$this->template->hrefBack = StringUtil::ampersand(str_replace('&key=importlosungen', '', Environment::get('request')));
 		$this->template->goBack = $GLOBALS['TL_LANG']['MSC']['goBack'];
-		$this->template->request = ampersand(\Environment::get('request'), ENCODE_AMPERSANDS);
-		$this->template->submit = specialchars($GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0]);
-		\Message::reset();
+		$this->template->request = StringUtil::ampersand(Environment::get('request'));
+		$this->template->submit = StringUtil::specialchars($GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0]);
+		Message::reset();
 
 		// Formular
 		$this->template->losungenFileInfo = $this->getLosungenFileInfo();
 		$this->template->losungenFileUpload = $this->getLosungenFileUpload();
 
-		if (\Input::post('FORM_SUBMIT') == 'tl_importlosung' && $this->blnSave)
+		if (Input::post('FORM_SUBMIT') == 'tl_importlosung' && $this->blnSave)
 		{
 			if ($this->importLosungenFromXMLFile($this->strLosungenFilename))
 			{
-				\Message::addConfirmation($GLOBALS['TL_LANG']['tl_losungen']['losungenImportSuccesfull']);
+				Message::addConfirmation($GLOBALS['TL_LANG']['tl_losungen']['losungenImportSuccesfull']);
 			}
 			else
 			{
-				\Message::addError($GLOBALS['TL_LANG']['tl_losungen']['losungenImportError']);
+				Message::addError($GLOBALS['TL_LANG']['tl_losungen']['losungenImportError']);
 			}
 		}
 
-		$this->template->message = \Message::generate();
+		$this->template->message = Message::generate();
 
 		return $this->template->parse();
 	}
@@ -86,7 +99,7 @@ class Losungen extends \Backend
 	 */
 	protected function getLosungenFileInfo()
 	{
-		$widget = new \TextField(array('name' => 'losungenFileInfo'));
+		$widget = new TextField(array('name' => 'losungenFileInfo'));
 		$widget->id = 'losungenFileInfo';
 		$widget->label =  $GLOBALS['TL_LANG']['tl_losungen']['losungenFileInfo'][0];
 		$strLosungenDownloadLink = sprintf('<a href="%1$s" target="_blank">%1$s</a>', $GLOBALS['TL_LANG']['tl_losungen']['losungenFileInfo'][2]);
@@ -102,7 +115,7 @@ class Losungen extends \Backend
 	 */
 	protected function getLosungenFileUpload()
 	{
-		$widget = new \Upload(array('name' => 'losungenFileUpload'));
+		$widget = new Upload(array('name' => 'losungenFileUpload'));
 		$widget->id = 'losungenFileUpload';
 		$widget->label =  $GLOBALS['TL_LANG']['tl_losungen']['losungenFileUpload'][0];
 		if ($GLOBALS['TL_CONFIG']['showHelp'] && strlen($GLOBALS['TL_LANG']['tl_losungen']['losungenFileUpload'][1]))
@@ -112,7 +125,7 @@ class Losungen extends \Backend
         $widget->extensions = 'xml';
 
 		// Valiate input
-		if (\Input::post('FORM_SUBMIT') == 'tl_importlosung')
+		if (Input::post('FORM_SUBMIT') == 'tl_importlosung')
 		{
 			$widget->validate();
 
@@ -141,27 +154,27 @@ class Losungen extends \Backend
 	{
 		if ($strLosungenXMLFilename == '')
 		{
-			\Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileNotExists']);
+			Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileNotExists']);
 			return false;
 		}
 
-		$objFile = new \File($strLosungenXMLFilename, true);
+		$objFile = new File($strLosungenXMLFilename, true);
 		// File exists?
 		if (!$objFile->exists())
 		{
-			\Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileNotExists']);
+			Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileNotExists']);
 			return false;
 		}
 		// File upload complete?
 		if ($objFile->size == 0)
 		{
-			\Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileTransmitError']);
+			Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileTransmitError']);
 			return false;
 		}
 		// Is XML File?
 		if ($objFile->extension != 'xml')
 		{
-			\Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileNoXml']);
+			Message::addError($GLOBALS['TL_LANG']['tl_losungen']['fileNoXml']);
 			return false;
 		}
 
@@ -170,7 +183,7 @@ class Losungen extends \Backend
 			$objXml = new \SimpleXMLElement($objFile->getContent());
 			if ($objXml->Losungen == null)
 			{
-				\Message::addError($GLOBALS['TL_LANG']['tl_losungen']['losungenTagNotFound']);
+				Message::addError($GLOBALS['TL_LANG']['tl_losungen']['losungenTagNotFound']);
 				return false;
 			}
 
@@ -183,7 +196,7 @@ class Losungen extends \Backend
 				$strDatum = substr((string) $Losung->Datum, 0, 10);
 				// Datum nach Unix parsen
 				$intDatum = 0;
-				$objDatum = new \Date($strDatum, 'Y-m-d');
+				$objDatum = new Date($strDatum, 'Y-m-d');
 				$intDatum = $objDatum->dayBegin;
 				// Losung exists?
 				$losungModel = LosungenModel::findByDatum($intDatum);
@@ -203,6 +216,7 @@ class Losungen extends \Backend
 				 *  "/ xxx /" durch kursiv
 				 *	"# xxx #" durch fett
 				 */
+				$losungModel->tstamp = time();
 				$losungModel->datum_import = $strDatum;
 				$losungModel->datum = $intDatum;
 				$losungModel->wochentag = (string) $Losung->Wtag;
@@ -218,16 +232,16 @@ class Losungen extends \Backend
 
 			if ($intNewLosungen > 0)
 			{
-				\Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_losungen']['losungenAdded'], $intNewLosungen));
+				Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_losungen']['losungenAdded'], $intNewLosungen));
 			}
 			if ($intUpdatedLosungen > 0)
 			{
-				\Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_losungen']['losungenUpdated'], $intUpdatedLosungen));
+				Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_losungen']['losungenUpdated'], $intUpdatedLosungen));
 			}
 		} 
 		catch (\Exception $e)
 		{
-			\Message::addError($e->getMessage());
+			Message::addError($e->getMessage());
 			return false;
 		}
 		return true;

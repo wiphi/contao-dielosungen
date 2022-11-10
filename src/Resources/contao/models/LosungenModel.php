@@ -10,6 +10,7 @@
 
 namespace WiPhi\DieLosungen;
 
+use Contao\Model;
 
 /**
  * Reads and writes Losungen
@@ -67,7 +68,7 @@ namespace WiPhi\DieLosungen;
  * @method static integer countByRequireLogin($val, $opt=array())
  * @method static integer countByDisableCaptcha($val, $opt=array())
  */
-class LosungenModel extends \Model
+class LosungenModel extends Model
 {
 
 	/**

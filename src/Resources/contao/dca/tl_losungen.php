@@ -11,6 +11,10 @@
  * @copyright &#40;c&#41; Philipp Winkel 2017
  */
 
+use Contao\Backend;
+use Contao\Config;
+use Contao\Date;
+
 
 /**
  * Table tl_losungen
@@ -145,7 +149,7 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
             //'filter' => true,
             'flag' => 8,            
             'inputType' => 'text',
-            'default' => \Date::parse(\Config::get('dateFormat')),
+            'default' => Date::parse(Config::get('dateFormat')),
 			//'default' => \Date::parse('Y-m-d'),
             'eval' => array(
                 'rgxp' => 'date',                
@@ -228,7 +232,7 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
 	)
 );
 
-class tl_losungen extends \Backend
+class tl_losungen extends Backend
 {
 	/**
 	 * Add the type of input field
@@ -240,7 +244,7 @@ class tl_losungen extends \Backend
 	public function listLosungen($arrRow)
 	{
 		return '<div class="tl_content_left">' 
-		. \Date::parse(\Config::get('dateFormat'), $arrRow['datum'])
+		. Date::parse(Config::get('dateFormat'), $arrRow['datum'])
 		. ' <span style="color:#b3b3b3;padding-left:3px">[' 
 		. $arrRow['losungsvers']
 		. ']</span> '	
