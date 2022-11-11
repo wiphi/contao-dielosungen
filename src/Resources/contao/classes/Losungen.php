@@ -36,7 +36,7 @@ use WiPhi\DieLosungen\LosungenModel;
  *
  * @copyright  &#40;c&#41; Philipp Winkel 2017
  * @author     Philipp Winkel
- * @package    Devtools
+ * @package    DieLosungen
  */
 class Losungen extends Backend
 {

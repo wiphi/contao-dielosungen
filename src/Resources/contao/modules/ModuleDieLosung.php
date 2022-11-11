@@ -17,15 +17,20 @@
  */
 namespace WiPhi\DieLosungen;
 
+use Contao\BackendTemplate;
+use Contao\Config;
+use Contao\Date;
+use Contao\Module;
+
 
 /**
  * Class ModulePreachmentList
  *
  * @copyright  &#40;c&#41; Philipp Winkel 2017
  * @author     Philipp Winkel
- * @package    Devtools
+ * @package    DieLosungen
  */
-class ModuleDieLosung extends \Module
+class ModuleDieLosung extends Module
 {
 
 	/**
@@ -40,9 +45,9 @@ class ModuleDieLosung extends \Module
 		if (TL_MODE == 'BE')
 		{
 			/** @var \BackendTemplate|object $objTemplate */
-			$objTemplate = new \BackendTemplate('be_wildcard');
+			$objTemplate = new BackendTemplate('be_wildcard');
 
-			$objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['dielosung'][0]) . ' ###';
+			$objTemplate->wildcard = '### ' . mb_strtoupper($GLOBALS['TL_LANG']['FMD']['dielosung'][0]) . ' ###';
 			$objTemplate->title = $this->headline;
 			$objTemplate->id = $this->id;
 			$objTemplate->link = $this->name;
@@ -58,7 +63,7 @@ class ModuleDieLosung extends \Module
 	 */
 	protected function compile()
 	{		
-		$objToday = new \Date();
+		$objToday = new Date();
 		$objLosung = null;
 		$arrLosung = null;
 		$blnLosungAvaible = false;
@@ -70,7 +75,7 @@ class ModuleDieLosung extends \Module
 			if (is_array($arrLosung))
 			{
 				$blnLosungAvaible = true;
-				$arrLosung['datumFormated'] = \Date::parse((($this->dielosung_datumsformat != '') ? $this->dielosung_datumsformat : \Config::get('dateFormat')), $arrLosung['datum']);
+				$arrLosung['datumFormated'] = Date::parse((($this->dielosung_datumsformat != '') ? $this->dielosung_datumsformat : Config::get('dateFormat')), $arrLosung['datum']);
 				$arrLosung['IsSonntag'] = ($arrLosung['sonntag_full'] != ''); 
 			}
 		}		

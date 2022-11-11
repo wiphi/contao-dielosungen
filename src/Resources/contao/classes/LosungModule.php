@@ -24,7 +24,7 @@ use Contao\Module;
  *
  * @copyright  &#40;c&#41; Philipp Winkel 2017
  * @author     Philipp Winkel
- * @package    Devtools
+ * @package    DieLosungen
  */
 class LosungModule extends Module
 {
