@@ -10,16 +10,20 @@
     <input type="hidden" name="FORM_SUBMIT" value="tl_importlosung" />
     <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>" />
 
-      <div class="tl_box">
+    <div class="tl_box">
+      <div class="widget">
         <h3><?= $this->losungenFileInfo->generateLabel(); ?></h3>
         <p><?= $this->losungenFileInfo->help; ?></p> 
       </div>
+    </div>
 
-      <div class="tl_box">
+    <div class="tl_box">
+      <div class="widget">
         <h3><?= $this->losungenFileUpload->generateLabel(); ?></h3>
         <?= $this->losungenFileUpload->generateWithError(); if ($this->losungenFileUpload->help): ?> 
         <p class="tl_help"><?= $this->losungenFileUpload->help; ?></p><?php endif; ?> 
       </div>
+    </div>
   </div>
 
   <div class="tl_formbody_submit">
