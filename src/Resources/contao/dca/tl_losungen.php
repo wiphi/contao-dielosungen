@@ -14,6 +14,7 @@
 use Contao\Backend;
 use Contao\Config;
 use Contao\Date;
+use Contao\DC_Table;
 
 
 /**
@@ -25,7 +26,7 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
 	// Config
 	'config' => array
 	(
-		'dataContainer'               => 'Table',
+		'dataContainer'               => DC_Table::class,
 		'enableVersioning'            => true,
 		'sql' => array
 		(
@@ -138,7 +139,8 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
 		),
 		'datum_import' => array
 		(
-            'sql' => "varchar(10) NOT NULL"  
+            'default' => Date::parse(Config::get('dateFormat')),
+			'sql' => "varchar(10) NOT NULL"  
 		),
 		'datum' => array
 		(

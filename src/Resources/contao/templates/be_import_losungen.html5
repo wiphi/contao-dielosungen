@@ -8,7 +8,7 @@
 <form action="<?=$this->request; ?>" id="tl_importlosung" class="tl_form" method="post" enctype="multipart/form-data">
   <div class="tl_formbody_edit">
     <input type="hidden" name="FORM_SUBMIT" value="tl_importlosung" />
-    <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>" />
+    <input type="hidden" name="REQUEST_TOKEN" value="<?= $this->token ?>" />
 
     <div class="tl_box">
       <div class="widget">

@@ -19,6 +19,7 @@ namespace WiPhi\DieLosungen;
 
 use Contao\Backend;
 use Contao\BackendTemplate;
+use Contao\BackendUser;
 use Contao\DataContainer;
 use Contao\Date;
 use Contao\Environment;
@@ -26,6 +27,7 @@ use Contao\File;
 use Contao\Input;
 use Contao\Message;
 use Contao\StringUtil;
+use Contao\System;
 use Contao\TextField;
 use Contao\Upload;
 use WiPhi\DieLosungen\LosungenModel;
@@ -58,16 +60,18 @@ class Losungen extends Backend
 		}
 
 		// Backend-Objekte laden
-		$this->import('BackendUser', 'User');
+		$this->import(BackendUser::class, 'User');
 		$this->loadLanguageFile("tl_losungen");
+		$requestToken = System::getContainer()->get('contao.csrf.token_manager')->getDefaultTokenValue();  		
 
-		// Template laden & ge$this->template->request = ampersand(\Environment::get('request'),nerieren
+		// Template laden & generieren
 		// Environment setzen
 		$this->template = new BackendTemplate('be_import_losungen');		
 		$this->template->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
 		$this->template->hrefBack = StringUtil::ampersand(str_replace('&key=importlosungen', '', Environment::get('request')));
 		$this->template->goBack = $GLOBALS['TL_LANG']['MSC']['goBack'];
 		$this->template->request = StringUtil::ampersand(Environment::get('request'));
+		$this->template->token = $requestToken;
 		$this->template->submit = StringUtil::specialchars($GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0]);
 		Message::reset();
 
