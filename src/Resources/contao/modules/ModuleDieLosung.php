@@ -33,9 +33,6 @@ use Contao\System;
  */
 class ModuleDieLosung extends Module
 {
-    private $requestStack;
-    private $scopeMatcher;
-
 	/**
 	 * Template
 	 * @var string
