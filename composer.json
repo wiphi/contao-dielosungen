@@ -35,10 +35,6 @@
 		]	
 	},
 	"extra":{
-		"contao-manager-plugin": "WiPhi\\DieLosungen\\ContaoManager\\Plugin",
-
-		"branch-alias": {
-			"dev-contao4": "2.0.x-dev"
-		}
+		"contao-manager-plugin": "WiPhi\\DieLosungen\\ContaoManager\\Plugin"
 	}
 }
