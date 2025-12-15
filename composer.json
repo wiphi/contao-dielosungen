@@ -17,13 +17,22 @@
 		"source":"https://github.com/wiphi/contao-dielosungen"
 	},
 	"require":{
-		"php": "~7.0 || ~8.0",
+		"php": "~8.2",
 		"contao/core-bundle": "~5.3"
 	},
 	"autoload":{
 		"psr-4": {
 			"WiPhi\\DieLosungen\\": "src/"
-		}	
+		},
+        "classmap": [
+            "contao/"
+        ],
+        "exclude-from-classmap": [
+            "contao/config/",
+            "contao/dca/",
+            "contao/languages/",
+            "contao/templates/"
+        ]
 	},
 	"extra":{
 		"contao-manager-plugin": "WiPhi\\DieLosungen\\ContaoManager\\Plugin"

@@ -4,6 +4,7 @@
  * @package   Losungen
  */
 
+use WiPhi\DieLosungen\ModuleDieLosung;
 
 /**
  * BACK END MODULES
@@ -59,7 +60,7 @@ $GLOBALS['BE_MOD']['content']['dielosungen'] = [
  * named "ModuleClass1.php" in your module folder.
  */
 $GLOBALS['FE_MOD']['dielosungen'] = array(
-    'dielosung' => 'WiPhi\DieLosungen\ModuleDieLosung'    
+    'dielosung' => ModuleDieLosung::class   
 );
 
 
