@@ -1,14 +1,8 @@
 <?php
 
 /**
- * Contao Open Source CMS
- *
- * Copyright (c) 2005-2016 Leo Feyer
- *
- * @package   Losungen
+ * @package   DieLosungen
  * @author    Philipp Winkel
- * @license   GNU
- * @copyright &#40;c&#41; Philipp Winkel 2017
  */
 
 use Contao\Backend;
@@ -59,16 +53,14 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
 			'importlosung' => array
 			(
 				'label' => &$GLOBALS['TL_LANG']['tl_losungen']['importlosungen'],
-				'href' => 'key=importlosungen',
-				'class' => 'header_importlosungen header_icon',
-				'attributes' => 'onclick="Backend.getScrollOffset()"',
+				'href' => 'key=dielosungen_importlosungen',
+				'class' => 'header_sync'
 			),
 			'all' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
 				'href'                => 'act=select',
-				'class'               => 'header_edit_all',
-				'attributes'          => 'onclick="Backend.getScrollOffset();" accesskey="e"'
+				'class'               => 'header_edit_all'
 			),
 		),
 		'operations' => array

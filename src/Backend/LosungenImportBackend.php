@@ -1,21 +1,8 @@
 <?php
 
-/**
- * Contao Open Source CMS
- *
- * Copyright (c) 2005-2016 Leo Feyer
- *
- * @package   Losungen
- * @author    Philipp Winkel
- * @license   GNU
- * @copyright &#40;c&#41; Philipp Winkel 2017
- */
+declare(strict_types=1);
 
-
-/**
- * Namespace
- */
-namespace WiPhi\DieLosungen;
+namespace WiPhi\DieLosungen\Backend;
 
 use Contao\Backend;
 use Contao\BackendTemplate;
@@ -30,17 +17,16 @@ use Contao\StringUtil;
 use Contao\System;
 use Contao\TextField;
 use Contao\Upload;
-use WiPhi\DieLosungen\LosungenModel;
+use WiPhi\DieLosungen\Model\LosungenModel;
 
 
 /**
- * Class Losungen
+ * Class LosungenImportBackend
  *
- * @copyright  &#40;c&#41; Philipp Winkel 2017
  * @author     Philipp Winkel
  * @package    DieLosungen
  */
-class Losungen extends Backend
+class LosungenImportBackend extends Backend
 {
 	protected $blnSave = true;
 
@@ -54,7 +40,7 @@ class Losungen extends Backend
 	 */
 	public function importlosungen(DataContainer $dc)
 	{
-		if (Input::get('key') != 'importlosungen')
+		if (Input::get('key') != 'dielosungen_importlosungen')
 		{
 			return '';
 		}
@@ -68,7 +54,7 @@ class Losungen extends Backend
 		// Environment setzen
 		$this->template = new BackendTemplate('be_import_losungen');		
 		$this->template->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
-		$this->template->hrefBack = StringUtil::ampersand(str_replace('&key=importlosungen', '', Environment::get('request')));
+		$this->template->hrefBack = StringUtil::ampersand(str_replace('&key=dielosungen_importlosungen', '', Environment::get('request')));
 		$this->template->goBack = $GLOBALS['TL_LANG']['MSC']['goBack'];
 		$this->template->request = StringUtil::ampersand(Environment::get('request'));
 		$this->template->token = $requestToken;
@@ -243,10 +229,10 @@ class Losungen extends Backend
 				Message::addConfirmation(sprintf($GLOBALS['TL_LANG']['tl_losungen']['losungenUpdated'], $intUpdatedLosungen));
 			}
 		} 
-		catch (\Exception $e)
+		catch (\Throwable $th)
 		{
-			Message::addError($e->getMessage());
-			return false;
+			Message::addError($th->getMessage());
+			throw $th;
 		}
 		return true;
 	}

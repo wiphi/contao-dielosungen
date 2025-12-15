@@ -1,14 +1,6 @@
 <?php
 
-/**
- * Contao Open Source CMS
- *
- * Copyright (c) 2005-2016 Leo Feyer
- *
- * @license LGPL-3.0+
- */
-
-namespace WiPhi\DieLosungen;
+namespace WiPhi\DieLosungen\Model;
 
 use Contao\Model;
 

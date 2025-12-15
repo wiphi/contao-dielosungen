@@ -1,10 +1,9 @@
 <?php
 /**
- * @copyright  Philipp Winkel 2018
  * @author     Philipp Winkel
  * @package    DieLosungen
  * @license    MIT
- * @see	       https://github.com/wiphi/dontao-dielosungen
+ * @see	       https://github.com/wiphi/contao-dielosungen
  *
  */
 namespace WiPhi\DieLosungen\ContaoManager;
@@ -12,6 +11,9 @@ namespace WiPhi\DieLosungen\ContaoManager;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Contao\CoreBundle\ContaoCoreBundle;
+
+use WiPhi\DieLosungen\WiPhiDieLosungenBundle;
 
 /**
  * Plugin for the Contao Manager.
@@ -26,9 +28,8 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('WiPhi\DieLosungen\WiPhiDieLosungen')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
-                ->setReplace(['dielosungen']),
+            BundleConfig::create(WiPhiDieLosungenBundle::class)
+                ->setLoadAfter([ContaoCoreBundle::class])
         ];
     }
 }

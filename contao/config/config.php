@@ -1,14 +1,7 @@
 <?php
 
 /**
- * Contao Open Source CMS
- *
- * Copyright (c) 2005-2016 Leo Feyer
- *
  * @package   Losungen
- * @author    Philipp Winkel
- * @license   GNU
- * @copyright &#40;c&#41; Philipp Winkel 2017
  */
 
 
@@ -38,11 +31,11 @@
  * have to be set. Take a look at the system/modules/core/config/config.php
  * file to see how back end modules are configured.
  */
-$GLOBALS['BE_MOD']['content']['dielosungen'] = array(
-    'tables' => array('tl_losungen'),
-    'importlosungen' => array('WiPhi\DieLosungen\Losungen', 'importlosungen')
-);
-
+$GLOBALS['BE_MOD']['content']['dielosungen'] = [
+    'tables' => ['tl_losungen'],
+    'dielosungen_importlosungen' => ['WiPhi\DieLosungen\Backend\LosungenImportBackend', 'importlosungen']
+];
+//$GLOBALS['BE_MOD']['content']['dielosungen']['dielosungen_importlosungen'] = array('WiPhi\DieLosungen\LosungenImportBackend', 'importlosungen');
 
 /**
  * FRONT END MODULES
@@ -172,7 +165,7 @@ $GLOBALS['FE_MOD']['dielosungen'] = array(
 /**
  * Register the model
  */
-$GLOBALS['TL_MODELS']['tl_losungen'] = 'WiPhi\DieLosungen\LosungenModel';
+$GLOBALS['TL_MODELS']['tl_losungen'] = 'WiPhi\DieLosungen\Model\LosungenModel';
 
 
 /**
