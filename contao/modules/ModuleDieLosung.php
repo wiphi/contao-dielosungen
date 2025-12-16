@@ -7,6 +7,7 @@ use Contao\Config;
 use Contao\Date;
 use Contao\Module;
 use Contao\System;
+use WiPhi\DieLosungen\Model\LosungenModel;
 
 
 /**
@@ -49,6 +50,7 @@ class ModuleDieLosung extends Module
 	 */
 	protected function compile()
 	{		
+		$this->loadLanguageFile("tl_losungen");
 		$objToday = new Date();
 		$objLosung = null;
 		$arrLosung = null;
@@ -66,6 +68,7 @@ class ModuleDieLosung extends Module
 			}
 		}		
 		$this->Template->setData($arrLosung);
+		$this->Template->losungenNotAvaible = $GLOBALS['TL_LANG']['tl_losungen']['losungenNotAvaible'];
 		$this->Template->blnLosungAvaible = $blnLosungAvaible;
 	}
 }

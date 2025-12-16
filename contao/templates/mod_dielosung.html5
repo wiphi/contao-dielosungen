@@ -18,7 +18,7 @@
   </div>
 
 <?php else : ?>
-  <p class="losung_not_avaible"><?= $GLOBALS['TL_LANG']['tl_losungen']['losungenNotAvaible'] ?></p>
+  <p class="losung_not_avaible"><?= $this->losungenNotAvaible ?></p>
 <?php endif; ?>
 
 </div>

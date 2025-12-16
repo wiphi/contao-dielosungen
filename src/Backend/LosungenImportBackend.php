@@ -53,7 +53,7 @@ class LosungenImportBackend extends Backend
 		// Template laden & generieren
 		// Environment setzen
 		$this->template = new BackendTemplate('be_import_losungen');		
-		$this->template->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
+		//$this->template->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
 		$this->template->hrefBack = StringUtil::ampersand(str_replace('&key=dielosungen_importlosungen', '', Environment::get('request')));
 		$this->template->goBack = $GLOBALS['TL_LANG']['MSC']['goBack'];
 		$this->template->request = StringUtil::ampersand(Environment::get('request'));
@@ -202,7 +202,6 @@ class LosungenImportBackend extends Backend
 
 				// Save the model
 				/** 
-				 *	TODO: Ersetze diverse Steuerzeichen
 				 *  "/ xxx /" durch kursiv
 				 *	"# xxx #" durch fett
 				 */
