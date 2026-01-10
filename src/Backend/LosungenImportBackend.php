@@ -52,18 +52,20 @@ class LosungenImportBackend extends Backend
 
 		// Template laden & generieren
 		// Environment setzen
-		$this->template = new BackendTemplate('be_import_losungen');		
-		//$this->template->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
-		$this->template->hrefBack = StringUtil::ampersand(str_replace('&key=dielosungen_importlosungen', '', Environment::get('request')));
-		$this->template->goBack = $GLOBALS['TL_LANG']['MSC']['goBack'];
-		$this->template->request = StringUtil::ampersand(Environment::get('request'));
-		$this->template->token = $requestToken;
-		$this->template->submit = StringUtil::specialchars($GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0]);
-		Message::reset();
+		$objTemplate = new BackendTemplate('be_import_losungen');		
+		$objTemplate->headline = $GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0];
+		$objTemplate->hrefBack = StringUtil::ampersand(str_replace('&key=dielosungen_importlosungen', '', Environment::get('request')));
+		$objTemplate->goBack = $GLOBALS['TL_LANG']['MSC']['goBack'];
+		$objTemplate->request = StringUtil::ampersand(Environment::get('request'));
+		$objTemplate->token = $requestToken;
+		$objTemplate->submit = StringUtil::specialchars($GLOBALS['TL_LANG']['tl_losungen']['importlosungen'][0]);
 
 		// Formular
-		$this->template->losungenFileInfo = $this->getLosungenFileInfo();
-		$this->template->losungenFileUpload = $this->getLosungenFileUpload();
+		$objTemplate->losungenFileInfo = $this->getLosungenFileInfo();
+		$objTemplate->losungenFileUpload = $this->getLosungenFileUpload();
+
+		$strMessage = Message::generate();
+		$objTemplate->message = $strMessage;
 
 		if (Input::post('FORM_SUBMIT') == 'tl_importlosung' && $this->blnSave)
 		{
@@ -75,11 +77,11 @@ class LosungenImportBackend extends Backend
 			{
 				Message::addError($GLOBALS['TL_LANG']['tl_losungen']['losungenImportError']);
 			}
+
+			$this->reload();
 		}
 
-		$this->template->message = Message::generate();
-
-		return $this->template->parse();
+		return $objTemplate->parse();
 	}
 
 	/**

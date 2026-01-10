@@ -35,6 +35,6 @@ $GLOBALS['TL_LANG']['tl_losungen']['filenoXml'] = 'Datei ist keine XML-Datei!';
 $GLOBALS['TL_LANG']['tl_losungen']['losungenTagNotFound'] = '"<Losungen></Losungen>"-Tag nicht gefunden!';
 $GLOBALS['TL_LANG']['tl_losungen']['losungenAdded'] = '%s Losungen hinzugefügt.';
 $GLOBALS['TL_LANG']['tl_losungen']['losungenUpdated'] = '%s Losungen aktualisiert.';
-$GLOBALS['TL_LANG']['tl_losungen']['losungenImportSuccesfull'] = '<>< Losungen erfolgreich importiert. <><';
+$GLOBALS['TL_LANG']['tl_losungen']['losungenImportSuccesfull'] = 'Losungen erfolgreich importiert.';
 $GLOBALS['TL_LANG']['tl_losungen']['losungenImportError'] = 'Losungen konnten leider nicht importiert werden, bitte überprüfen Sie die Datei.';
 $GLOBALS['TL_LANG']['tl_losungen']['losungenNotAvaible'] = 'Die Losung für den aktuellen Tag ist nicht verfügbar.';
