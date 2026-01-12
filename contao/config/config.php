@@ -38,7 +38,6 @@ $GLOBALS['BE_MOD']['content']['dielosungen'] = [
     'tables' => ['tl_losungen'],
     'dielosungen_importlosungen' => [LosungenImportBackend::class, 'importlosungen']
 ];
-//$GLOBALS['BE_MOD']['content']['dielosungen']['dielosungen_importlosungen'] = array('WiPhi\DieLosungen\LosungenImportBackend', 'importlosungen');
 
 /**
  * FRONT END MODULES
