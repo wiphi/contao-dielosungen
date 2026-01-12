@@ -17,7 +17,7 @@
 		"source":"https://github.com/wiphi/contao-dielosungen"
 	},
 	"require":{
-		"php": "~8.2",
+		"php": "^8.2",
 		"contao/core-bundle": "~5.3"
 	},
 	"autoload":{
