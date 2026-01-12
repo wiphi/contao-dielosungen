@@ -5,6 +5,8 @@
  */
 
 use WiPhi\DieLosungen\ModuleDieLosung;
+use WiPhi\DieLosungen\Backend\LosungenImportBackend;
+use WiPhi\DieLosungen\Model\LosungenModel;
 
 /**
  * BACK END MODULES
@@ -34,7 +36,7 @@ use WiPhi\DieLosungen\ModuleDieLosung;
  */
 $GLOBALS['BE_MOD']['content']['dielosungen'] = [
     'tables' => ['tl_losungen'],
-    'dielosungen_importlosungen' => ['WiPhi\DieLosungen\Backend\LosungenImportBackend', 'importlosungen']
+    'dielosungen_importlosungen' => [LosungenImportBackend::class, 'importlosungen']
 ];
 //$GLOBALS['BE_MOD']['content']['dielosungen']['dielosungen_importlosungen'] = array('WiPhi\DieLosungen\LosungenImportBackend', 'importlosungen');
 
@@ -166,7 +168,7 @@ $GLOBALS['FE_MOD']['dielosungen'] = array(
 /**
  * Register the model
  */
-$GLOBALS['TL_MODELS']['tl_losungen'] = 'WiPhi\DieLosungen\Model\LosungenModel';
+$GLOBALS['TL_MODELS']['tl_losungen'] = LosungenModel::class;
 
 
 /**
