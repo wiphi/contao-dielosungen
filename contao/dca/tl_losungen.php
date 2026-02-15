@@ -41,7 +41,6 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
 			'flag'                    => 1,
 			'panelLayout' 			  => 'filter;sort,search,limit',
             'disableGrouping' 		  => false,
-			//'child_record_callback'   => array('tl_losungen', 'listLosungen'),
 		),
 		'label' => array(
 			'fields' => array('datum'),
@@ -54,54 +53,18 @@ $GLOBALS['TL_DCA']['tl_losungen'] = array
 			(
 				'label' => &$GLOBALS['TL_LANG']['tl_losungen']['importlosungen'],
 				'href' => 'key=dielosungen_importlosungen',
-				'class' => 'header_sync'
+				'class' => 'header_sync',
+				'primary' => true
 			),
-			'all' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
-				'href'                => 'act=select',
-				'class'               => 'header_edit_all'
-			),
+			'all'
 		),
 		'operations' => array
 		(
-			'edit' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_losungen']['edit'],
-				'href'                => 'act=edit',
-				'icon'                => 'edit.gif'
-			),
-			'copy' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_losungen']['copy'],
-				'href'                => 'act=copy',
-				'icon'                => 'copy.gif'
-			),
-			'delete' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_losungen']['delete'],
-				'href'                => 'act=delete',
-				'icon'                => 'delete.gif',
-			),
-			'show' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_losungen']['show'],
-				'href'                => 'act=show',
-				'icon'                => 'show.gif'
-			)
+			'edit',
+			'copy',
+			'delete',
+			'!show'
 		)
-	),
-
-	// Select
-	'select' => array
-	(
-		'buttons_callback' => array()
-	),
-
-	// Edit
-	'edit' => array
-	(
-		'buttons_callback' => array()
 	),
 
 	// Palettes
